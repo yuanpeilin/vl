@@ -17,3 +17,5 @@
 * 再次修改loginServlet, 密码合法时跳转到主页
     * `req.getSession().setAttribute("username", username);`放入数据
     * `<%=ssession.getAttribute()%>`获取数据
+    
+* 修改注册登录相反的bug, 并从后台后渠道用户名
