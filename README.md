@@ -9,3 +9,4 @@
 * 修改servlet
     * `<form>`标签的action属性的值对应`@webServlet`
     * `<input>`标签的name属性的值对应`req.getParameter()`
+* 加入登陆注册模板
