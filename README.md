@@ -15,7 +15,7 @@
 * 修改registerServlet, 登录成功时向数据库新增用户, 并跳转主页
     * `resp.sendRedirect("index.jsp");`跳转主页
 * 再次修改loginServlet, 密码合法时跳转到主页
-    * `req.getSession().setAttribute("username", username);`放入数据
+    * `req.getSession().setAttribute("username", username);`后端放入数据
     * `<%=ssession.getAttribute()%>`获取数据
     
 * 修改注册登录相反的bug, 并从后台后渠道用户名
@@ -27,3 +27,16 @@
 
 * 新建list.jsp
 * 修改list.jsp
+
+* 修改index.jsp, 将a标签的href属性改为`href="getArticle.do?aid=<%=article.getAid()%>"`
+* 新建GetArticleServlet, 获取前端传过来的aid
+    * 接受前端的数据`req.getParameter("aid")`
+* 修改Dao, 新增通过aid获取文章的方法
+* 修改GetArticleServlet, 获取article实例
+* **将article实例绑定到session中, 并跳转**
+```java
+Article article = ArticleDao.getArticleByAid(aid);
+req.getSession().setAttribute("article",article);
+resp.sendRedirect("info.jsp");
+```
+* 新建info.jsp并修改
