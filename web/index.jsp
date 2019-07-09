@@ -1,8 +1,10 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="obj.Article" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>杨青个人</title>
+    <title><%=session.getAttribute("username")%>个人</title>
     <meta name="keywords" content="关键词,关键词,关键词,关键词,5个关键词"/>
     <meta name="description" content="网站简介，不超过80个字"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +17,7 @@
 </head>
 <body>
 <header>
-    <div class="logo">杨青个人博客</div>
+    <div class="logo"><%=session.getAttribute("username")%>个人博客</div>
 
     <div class="top-nav">
         <h2 id="mnavh"><span class="navicon"></span></h2>
@@ -27,7 +29,7 @@
             <li><a href="/4">网页设计心得</a></li>
             <li><a href="/5">优秀个人博客</a></li>
             <li><a href="/5">关于我</a></li>
-            <li><a href="/5">留言</a></li>
+            <li><a href="login.html">登录/注册</a></li>
         </ul>
     </div>
 
@@ -47,7 +49,7 @@
 
 <aside class="side">
     <div class="about"><i><a href="/"><img src="images/avatar.jpg"></a></i>
-        <p>杨青，一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。</p>
+        <p><%=session.getAttribute("username")%>，一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。</p>
     </div>
     <div class="weixin"><img src="http://www.yangqq.com/skin/html/images/wx.jpg">
         <p>关注我 么么哒！</p>
@@ -115,14 +117,21 @@
                 <div class="news">
                     <h2 class="newstitle"><span><a href="/">更多</a></span><b>个人博客日记</b></h2>
                     <ul>
-                        <li><a href="/"><span>08-30</span>如何快速建立自己的个人博客网站</a></li>
-                        <li><a href="/"><span>08-30</span>个人博客，属于我的小世界！</a></li>
-                        <li><a href="/"><span>08-30</span>网易博客关闭，何不从此开始潇洒行走江湖！</a></li>
-                        <li><a href="/"><span>08-30</span>个人网站做好了，百度不收录怎么办？来，看看他们怎么做的。</a></li>
-                        <li><a href="/"><span>08-30</span>帝国cms 循环调用子栏目信息以及头条图片</a></li>
-                        <li><a href="/"><span>08-30</span>我是怎么评价自己的？</a></li>
-                        <li><a href="/"><span>08-30</span>html5 个人博客模板《蓝色畅想》</a></li>
-                        <li><a href="/"><span>08-30</span>【匆匆那些年】总结个人博客经历的这四年</a></li>
+<%--                        <li><a href="/"><span>08-30</span>如何快速建立自己的个人博客网站</a></li>--%>
+
+                        <%
+                            ArrayList<Article> list = (ArrayList<Article>) session.getAttribute("articleList");
+                            for (int i = 0; i < 8; ++i) {
+                                Article article = list.get(i);
+                        %>
+                        <li><a href="/">
+                            <span><%=article.getDate().substring(5)%></span>
+                            <%=article.getTitle()%>
+                        </a></li>
+                        <%
+                            }
+                        %>
+
                     </ul>
                 </div>
             </section>
@@ -215,16 +224,17 @@
                 <li><a href="/"><img src="images/yqlj.png"></a></li>
             </ul>
             <ul class="link-text">
-                <li><a href="http://www.yangqq.com">杨青个人博客</a></li>
-                <li><a href="http://www.yangqq.com">杨青个人博客</a></li>
-                <li><a href="http://www.yangqq.com">杨青个人博客</a></li>
-                <li><a href="http://www.yangqq.com">杨青个人博客</a></li>
-                <li><a href="http://www.yangqq.com">杨青个人博客</a></li>
+                <li><a href="/"><%=session.getAttribute("username")%>个人博客</a></li>
+                <li><a href="/"><%=session.getAttribute("username")%>个人博客</a></li>
+                <li><a href="/"><%=session.getAttribute("username")%>个人博客</a></li>
+                <li><a href="/"><%=session.getAttribute("username")%>个人博客</a></li>
+                <li><a href="/"><%=session.getAttribute("username")%>个人博客</a></li>
             </ul>
         </div>
 
         <div class="copyright">
-            <p>Copyright 2018 Inc. AllRights Reserved. Design by <a href="/">杨青个人博客</a> 蜀ICP备11002373号-1</p>
+            <p>Copyright 2018 Inc. AllRights Reserved. Design by <a href="/"><%=session.getAttribute("username")%>
+                个人博客</a> 蜀ICP备11002373号-1</p>
         </div>
     </div>
 </main>

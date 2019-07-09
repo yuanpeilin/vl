@@ -1,5 +1,7 @@
 package main;
 
+import dao.UserDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +15,14 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
-        resp.setCharacterEncoding("utf-8");
+        resp.setContentType("text/html;charset=utf-8");
+
+        // 从注册界面获取username和password
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        System.out.println(this.getClass().toString() + " " + username + " " + password);
+
+        UserDao.addUser(username, password);
     }
 
 }

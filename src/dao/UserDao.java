@@ -40,7 +40,7 @@ public class UserDao {
      * @return
      */
     public static String getPasswordByUsername(String username) {
-        String sql = "SELECT password FROM vltest WHERE username=?";
+        String sql = "SELECT password FROM user WHERE username=?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -78,7 +78,7 @@ public class UserDao {
      * @return
      */
     public static int getUidByUsername(String username) {
-        String sql = "SELECT uid FROM vltest WHERE username=?";
+        String sql = "SELECT uid FROM user WHERE username=?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -107,6 +107,39 @@ public class UserDao {
             }
         }
         return uid;
+    }
+
+    /**
+     * 向数据库中插入username和password
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    public static boolean addUser(String username, String password) {
+        String sql = "INSERT INTO user VALUES (DEFAULT,?,?,NULL)";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        boolean flag = false;
+        try {
+            connection = ConnectionUtil.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            flag = preparedStatement.execute();
+
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+            }
+        }
+        return flag;
     }
 
 }
