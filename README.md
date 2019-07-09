@@ -24,3 +24,6 @@
 * 修改LoginServlet, 获取用户的所有文章并发送给前台
 * 向数据库里面加数据
 * 修改index.jsp, 文章列表改成动态
+
+* 新建list.jsp
+* 修改list.jsp
