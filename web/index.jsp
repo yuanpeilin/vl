@@ -29,7 +29,7 @@
             <li><a href="/4">网页设计心得</a></li>
             <li><a href="/5">优秀个人博客</a></li>
             <li><a href="/5">关于我</a></li>
-            <li><a href="/5">留言</a></li>
+            <li><a href="login.html">登录/注册</a></li>
         </ul>
     </div>
 
