@@ -57,4 +57,49 @@ public class ArticleDao {
         return list;
     }
 
+    /**
+     * 通过aid获取article实例
+     *
+     * @param aid
+     * @return
+     */
+    public static Article getArticleByAid(int aid) {
+        String sql = "SELECT * FROM article WHERE aid=?";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        Article article = null;
+        try {
+            connection = ConnectionUtil.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, aid);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                article = new Article();
+                article.setAid(resultSet.getInt("aid"));
+                article.setLike(resultSet.getInt("like"));
+                article.setUid(resultSet.getInt("uid"));
+                article.setTitle(resultSet.getString("title"));
+                article.setText(resultSet.getString("text"));
+                article.setPic(resultSet.getString("pic"));
+                article.setDate(resultSet.getString("date"));
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+            }
+        }
+        return article;
+    }
+
 }

@@ -124,7 +124,7 @@
                             for (int i = 0; i < 8; ++i) {
                                 Article article = list.get(i);
                         %>
-                        <li><a href="/">
+                        <li><a href="getArticle.do?aid=<%=article.getAid()%>">
                             <span><%=article.getDate().substring(5)%></span>
                             <%=article.getTitle()%>
                         </a></li>
