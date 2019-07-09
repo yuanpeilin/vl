@@ -40,3 +40,5 @@ req.getSession().setAttribute("article",article);
 resp.sendRedirect("info.jsp");
 ```
 * 新建info.jsp并修改
+
+* 将yq改成用户的名字
