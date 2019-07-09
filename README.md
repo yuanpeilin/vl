@@ -19,3 +19,8 @@
     * `<%=ssession.getAttribute()%>`获取数据
     
 * 修改注册登录相反的bug, 并从后台后渠道用户名
+* 新建article数据库, 并建立对应的实体类
+* 新建ArticleDao, 通过uid获取这个用户的所有文章
+* 修改LoginServlet, 获取用户的所有文章并发送给前台
+* 向数据库里面加数据
+* 修改index.jsp, 文章列表改成动态

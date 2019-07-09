@@ -1,12 +1,15 @@
 package main;
 
+import dao.ArticleDao;
 import dao.UserDao;
+import obj.Article;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/login.do")
 public class LoginServlet extends javax.servlet.http.HttpServlet {
@@ -26,6 +29,11 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             // 将用户姓名传给前台
             req.getSession().setAttribute("username", username);
             resp.sendRedirect("index.jsp");
+
+            // 获取用户的所有文章
+            int uid = UserDao.getUidByUsername(username);
+            ArrayList<Article> articleList = ArticleDao.getArticlesByUid(uid);
+            req.getSession().setAttribute("articleList", articleList);
         }
     }
 
