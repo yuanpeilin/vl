@@ -10,3 +10,10 @@
     * `<form>`标签的action属性的值对应`@webServlet`
     * `<input>`标签的name属性的值对应`req.getParameter()`
 * 加入登陆注册模板
+* 修改loginServlet, 获取用户名和密码, **二次确认未处理** 
+* 修改UserDao, 新增向数据库插入用户的函数
+* 修改registerServlet, 登录成功时向数据库新增用户, 并跳转主页
+    * `resp.sendRedirect("index.jsp");`跳转主页
+* 再次修改loginServlet, 密码合法时跳转到主页
+    * `req.getSession().setAttribute("username", username);`放入数据
+    * `<%=ssession.getAttribute()%>`获取数据
