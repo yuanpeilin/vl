@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * 使用Get的方式返回challenge和capthca_id,此方式以实现前后端完全分离的开发模式
  *
  */
+@WebServlet("/gt/register")
 public class StartCaptchaServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,

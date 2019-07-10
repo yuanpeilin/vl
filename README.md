@@ -84,3 +84,9 @@ CREATE TABLE `vltest`.`conment` (
 * 新建对应的实体类
 * 新建对应的Dao层, 通过aid获取所有的评论
 * 修改GetArticleServlet, 获取评论并绑定到session中
+
+* 修改login.jsp, 准备验证
+    * 导入对应的jar
+    * 添加所需要的html, css, js. 注意改路径
+    * 四个java类, 改口令
+    * 改Java类对应的注解

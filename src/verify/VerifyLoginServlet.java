@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +18,7 @@ import org.json.JSONObject;
 /**
  * 使用post方式，返回验证结果, request表单中必须包含challenge, validate, seccode
  */
+@WebServlet("/gt/ajax-validate")
 public class VerifyLoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,

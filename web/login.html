@@ -7,91 +7,167 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Flexible Forms a Flat Responsive Widget Template :: w3layouts</title>
-	<link rel="stylesheet" href="css/style.css">
-	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,900,700italic,900italic' rel='stylesheet' type='text/css'>
+    <title>Flexible Forms a Flat Responsive Widget Template :: w3layouts</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800,800italic'
+          rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,900,700italic,900italic'
+          rel='stylesheet' type='text/css'>
 
-	<!-- For-Mobile-Apps-and-Meta-Tags -->
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="keywords" content="Flexible Forms Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
-		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<!-- //For-Mobile-Apps-and-Meta-Tags -->
-	<script src="js/jquery.min.js"></script>
-	<script>$(document).ready(function(c) {
-	$('.alert-close').on('click', function(c){
-		$('.sign-up-agileinfo').fadeOut('slow', function(c){
-	  		$('.sign-up-agileinfo').remove();
-		});
-	});	  
-});
-</script>
-<script>$(document).ready(function(c) {
-	$('.alert-close1').on('click', function(c){
-		$('.sign-in-w3ls').fadeOut('slow', function(c){
-	  		$('.sign-in-w3ls').remove();
-		});
-	});	  
-});
-</script>
+    <!-- For-Mobile-Apps-and-Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords"
+          content="Flexible Forms Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!-- //For-Mobile-Apps-and-Meta-Tags -->
+    <script src="js/jquery.min.js"></script>
+    <script>$(document).ready(function (c) {
+        $('.alert-close').on('click', function (c) {
+            $('.sign-up-agileinfo').fadeOut('slow', function (c) {
+                $('.sign-up-agileinfo').remove();
+            });
+        });
+    });
+    </script>
+    <script>$(document).ready(function (c) {
+        $('.alert-close1').on('click', function (c) {
+            $('.sign-in-w3ls').fadeOut('slow', function (c) {
+                $('.sign-in-w3ls').remove();
+            });
+        });
+    });
+    </script>
+    <style>
+        #captcha1 {
+            width: 384px;
+            display: inline-block;
+        }
+        .show {
+            display: block;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-	<h1>Flexible Forms</h1>
-	<div class="container">
+<h1>Flexible Forms</h1>
+<div class="container">
+
+    <div class="sign-up-agileinfo">
+        <div class="alert-close"></div>
+        <h3>Sign Up</h3>
+        <form action="register.do" method="post">
+            <!--<input type="text" class="first name" name="first name" placeholder="First Name" required="">-->
+            <!--<input type="text" class="last name" name="last name" placeholder="Last Name" required="">-->
+            <input type="text" class="email" name="username" placeholder="Username" required="">
+            <input type="password" class="password" name="password" placeholder="Password" required="">
+            <input type="password" class="password" name="confirm password" placeholder="Confirm Password" required="">
+
+            <!--验证-->
+            <div>
+                <div id="captcha1">
+                    <p id="wait1" class="show">正在加载验证码......</p>
+                </div>
+            </div>
+            <br>
+            <p id="notice1" class="hide">请先完成验证</p>
+            <!--验证-->
+
+            <input type="submit" id="submit1" value="Sign Up">
+        </form>
+    </div>
+
+    <!-- 注意，验证码本身是不需要 jquery 库，此处使用 jquery 仅为了在 demo 使用，减少代码量 -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- 引入 gt.js，既可以使用其中提供的 initGeetest 初始化函数 -->
+    <script src="js/gt.js"></script>
+
+    <script>
+        var handler1 = function (captchaObj) {
+            $("#submit1").click(function (e) {
+                var result = captchaObj.getValidate();
+                if (!result) {
+                    $("#notice1").show();
+                    setTimeout(function () {
+                        $("#notice1").hide();
+                    }, 2000);
+                    e.preventDefault();
+                }
+            });
+            // 将验证码加到id为captcha的元素里，同时会有三个input的值用于表单提交
+            captchaObj.appendTo("#captcha1");
+            captchaObj.onReady(function () {
+                $("#wait1").hide();
+            });
+            // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+        };
+        $.ajax({
+            url: "gt/register?t=" + (new Date()).getTime(), // 加随机数防止缓存
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                // 调用 initGeetest 初始化参数
+                // 参数1：配置参数
+                // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它调用相应的接口
+                initGeetest({
+                    gt: data.gt,
+                    challenge: data.challenge,
+                    new_captcha: data.new_captcha, // 用于宕机时表示是新验证码的宕机
+                    offline: !data.success, // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                    product: "float", // 产品形式，包括：float，popup
+                    width: "100%"
+                    // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+                }, handler1);
+            }
+        });
+    </script>
+
+    <div class="sign-in-w3ls">
+        <div class="alert-close1"></div>
+        <h3>Sign In</h3>
+        <form action="login.do" method="post">
+            <input type="text" class="name" name="username" placeholder="Username" required="">
+            <input type="password" class="password" name="password" placeholder="Password" required="">
+            <ul class="check">
+                <li>
+                    <input type="checkbox" id="brand1" value="">
+                    <label for="brand1"><span></span>Remember me</label>
+                </li>
+            </ul>
+            <a href="#">Forgot Password?</a><br>
+            <div class="clear"></div>
 
 
-		<div class="sign-up-agileinfo">
-			<div class="alert-close"> </div>
-			<h3>Sign Up</h3>
-			<form action="register.do" method="post">
-<!--				<input type="text" class="first name" name="first name" placeholder="First Name" required="">-->
-<!--				<input type="text" class="last name" name="last name" placeholder="Last Name" required="">-->
-				<input type="text" class="email" name="username" placeholder="Username" required="">
-				<input type="password" class="password" name="password" placeholder="Password" required="">
-				<input type="password" class="password" name="confirm password" placeholder="Confirm Password" required="">
 
+            <input type="submit" value="Sign In">
+            <div class="socialicons w3">
+                <h2>OR</h2>
+                <ul>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </form>
+    </div>
 
-
-				<input type="submit" value="Sign Up">
-			</form>
-		</div>
-
-
-		<div class="sign-in-w3ls">
-			<div class="alert-close1"> </div>
-			<h3>Sign In</h3>
-			<form action="login.do" method="post">
-				<input type="text" class="name" name="username" placeholder="Username" required="">
-				<input type="password" class="password" name="password" placeholder="Password" required="">
-				<ul class="check">
-					<li>
-						<input type="checkbox" id="brand1" value="">
-						<label for="brand1"><span></span>Remember me</label>
-					</li>
-				</ul>
-				<a href="#">Forgot Password?</a><br>
-				<div class="clear"></div>
-				<input type="submit" value="Sign In">
-				<div class="socialicons w3">
-					<h2>OR</h2>
-					<ul>
-						<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
-			</form>
-		</div>
-
-
-		<div class="clear"></div>
-		<div class="footer-agilew3">
-			<p> &copy; 2016 Flexible Forms. All Rights Reserved | Design by  <a href="http://w3layouts.com/"> W3layouts</a></p>
-		</div>
-	</div>
+    <div class="clear"></div>
+    <div class="footer-agilew3">
+        <p> &copy; 2016 Flexible Forms. All Rights Reserved | Design by <a href="http://w3layouts.com/"> W3layouts</a>
+        </p>
+    </div>
+</div>
 </body>
 </html>
