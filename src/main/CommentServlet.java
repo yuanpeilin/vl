@@ -21,6 +21,10 @@ public class CommentServlet extends HttpServlet {
         comment.setText(req.getParameter("text"));
         comment.setAid(Integer.parseInt(req.getParameter("aid")));
         CommentDao.addComment(comment);
+
+        System.out.println("name: " + req.getParameter("username"));
+        System.out.println("text: " + req.getParameter("text"));
+        System.out.println("aid: " + req.getParameter("aid"));
     }
 
 }

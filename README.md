@@ -255,3 +255,4 @@ CREATE TABLE `vltest`.`comment` (
 
 <br>
 
+**准备使用ajax刷新评论, 但是获取用户名和密码失败**
