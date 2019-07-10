@@ -77,18 +77,18 @@
                 }
             })
         }
-        function comment(aid) {
-            $.ajax({
-                type:"POST",
-                url:"comment.do?aid="+aid,
-                success: function (result) {
-                    alert("评论成功");
-                },
-                error:function (e) {
-                    alert("评论失败");
-                }
-            })
-        }
+        // function comment(aid) {
+        //     $.ajax({
+        //         type:"POST",
+        //         url:"comment.do?aid="+aid,
+        //         success: function (result) {
+        //             alert("评论成功");
+        //         },
+        //         error:function (e) {
+        //             alert("评论失败");
+        //         }
+        //     })
+        // }
     </script>
 </head>
 <body>
@@ -205,7 +205,7 @@
                     return true;
                 }
             </script>
-            <form action="javascript:comment(<%=articleInfo.getAid()%>);" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+            <form action="comment.do?aid=<%=articleInfo.getAid()%>" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
                 <div id="plpost">
                     <p class="saying"><span><a href="/e/pl/?classid=77&amp;id=106">共有<%=commentList.size()%>条评论</a></span>来说两句吧...</p>
                     <p class="yname"><span>用户名:</span>
