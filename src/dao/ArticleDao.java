@@ -29,17 +29,7 @@ public class ArticleDao {
             preparedStatement.setInt(1, uid);
             resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) {
-                article = new Article();
-                article.setAid(resultSet.getInt("aid"));
-                article.setLikeCount(resultSet.getInt("likecount"));
-                article.setUid(resultSet.getInt("uid"));
-                article.setTitle(resultSet.getString("title"));
-                article.setText(resultSet.getString("text"));
-                article.setPic(resultSet.getString("pic"));
-                article.setDate(resultSet.getString("date"));
-                list.add(article);
-            }
+            list = getResult(resultSet);
 
             resultSet.close();
             preparedStatement.close();
@@ -128,6 +118,60 @@ public class ArticleDao {
             } catch (SQLException e) {
             }
         }
+    }
+
+    /**
+     * 获取点赞数前几的文章
+     *
+     * @param count
+     * @return
+     */
+    public static ArrayList<Article> getTopArticle(int count) {
+        String sql = "SELECT * FROM article ORDER BY likecount DESC LIMIT 0,?";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        ArrayList<Article> articleList = new ArrayList<>();
+        try {
+            connection = ConnectionUtil.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,count);
+            resultSet = preparedStatement.executeQuery();
+
+            articleList = getResult(resultSet);
+
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+            }
+        }
+        return articleList;
+    }
+
+    private static ArrayList<Article> getResult(ResultSet resultSet) throws SQLException {
+        ArrayList<Article> articleList = new ArrayList<>();
+        Article article = null;
+        while (resultSet.next()) {
+            article = new Article();
+            article.setAid(resultSet.getInt("aid"));
+            article.setLikeCount(resultSet.getInt("likecount"));
+            article.setUid(resultSet.getInt("uid"));
+            article.setTitle(resultSet.getString("title"));
+            article.setText(resultSet.getString("text"));
+            article.setPic(resultSet.getString("pic"));
+            article.setDate(resultSet.getString("date"));
+            articleList.add(article);
+        }
+
+        return articleList;
     }
 
 }

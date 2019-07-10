@@ -6,6 +6,7 @@
 <%
     String name = (String) session.getAttribute("username");
     ArrayList<Article> articleList = (ArrayList<Article>) session.getAttribute("articleList");
+    ArrayList<Article> topArticles = (ArrayList<Article>) session.getAttribute("topArticles");
 %>
 
 <head>
@@ -96,11 +97,13 @@
                 <h2 class="newstitle"><b>文章排行</b></h2>
                 <ul>
                     <%
-                        if (articleList != null)
-                            for (int i = 0; i < articleList.size(); ++i) {
-                                Article article = articleList.get(i);
+                        if (topArticles != null)
+                            for (int i = 0; i < topArticles.size(); ++i) {
+                                Article article = topArticles.get(i);
                     %>
-                    <li><a href="getArticle.do?aid=<%=article.getAid()%>"><span><%=article.getDate().substring(5)%></span><%=article.getTitle()%>
+                    <li><a href="getArticle.do?aid=<%=article.getAid()%>">
+                            <span><%=article.getLikeCount()%>
+                            </span><%=article.getTitle()%>
                     </a></li>
                     <%
                             }

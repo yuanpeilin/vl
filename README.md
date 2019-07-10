@@ -96,4 +96,7 @@ CREATE TABLE `vltest`.`conment` (
 * 加入点赞html代码和对应的ajax代码, 测试是否能行
 * 新建一个servlet处理点赞的请求
 * 修改Dao层使得通过aid增加点赞数量
-* 
+
+* 修改Dao层, 新增获取点赞数量最多的文章的函数
+* 修改LoginServlet, 把获取到的文章绑定到session中
+* 修改index.jsp和list.jsp, 获取点赞文章

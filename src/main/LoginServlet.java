@@ -35,11 +35,15 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
                 } else {
                     // 将用户姓名传给前台
                     req.getSession().setAttribute("username", username);
-                    resp.sendRedirect("index.jsp");
                     // 获取用户的所有文章
                     int uid = UserDao.getUidByUsername(username);
                     ArrayList<Article> articleList = ArticleDao.getArticlesByUid(uid);
                     req.getSession().setAttribute("articleList", articleList);
+                    // 获取点赞数量最高的文章
+                    ArrayList<Article> topArticles = ArticleDao.getTopArticle(8);
+                    req.getSession().setAttribute("topArticles", topArticles);
+                    // 跳转到主页
+                    resp.sendRedirect("index.jsp");
                 }
         } catch (NullPointerException e) {
             e.printStackTrace();
