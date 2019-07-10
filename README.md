@@ -70,3 +70,17 @@ resp.sendRedirect("info.jsp");
 * 加入验证的一些工具
 * 加入图片
 
+* 新建comment数据库
+```sql
+CREATE TABLE `vltest`.`conment` (
+  `cid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `text` VARCHAR(2000) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `date` DATE NOT NULL DEFAULT "1989-06-04",
+  `aid` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`cid`),
+  UNIQUE INDEX `cid_UNIQUE` (`cid` ASC) VISIBLE);
+```
+* 新建对应的实体类
+* 新建对应的Dao层, 通过aid获取所有的评论
+* 修改GetArticleServlet, 获取评论并绑定到session中
