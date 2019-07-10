@@ -22,7 +22,8 @@ public class RegisterServlet extends HttpServlet {
         String password = req.getParameter("password");
         System.out.println(this.getClass().toString() + " " + username + " " + password);
 
-        UserDao.addUser(username, password);
+        boolean flag = UserDao.addUser(username, password);
+        System.out.println(this.getClass().toString() + flag);
     }
 
 }

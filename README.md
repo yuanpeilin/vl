@@ -90,3 +90,6 @@ CREATE TABLE `vltest`.`conment` (
     * 添加所需要的html, css, js. 注意改路径
     * 四个java类, 改口令
     * 改Java类对应的注解
+
+* 删除所有的gtlog
+* 调整登录逻辑

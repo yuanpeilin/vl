@@ -39,7 +39,7 @@ public class UserDao {
      * @param username
      * @return
      */
-    public static String getPasswordByUsername(String username) {
+    public static String getPasswordByUsername(String username) throws NullPointerException {
         String sql = "SELECT password FROM user WHERE username=?";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
