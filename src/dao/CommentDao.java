@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CommentDao {
 
@@ -52,6 +53,36 @@ public class CommentDao {
             }
         }
         return commentList;
+    }
+
+    /**
+     * 添加一条评论
+     *
+     * @param map
+     */
+    public static void addComment(HashMap<String, String> map) {
+        String sql = "INSERT INTO comment VALUES (DEFAULT, ?, ?, DEFAULT, ?)";
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = ConnectionUtil.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, map.get("text"));
+            preparedStatement.setString(2, map.get("name"));
+            preparedStatement.setInt(3, Integer.parseInt(map.get("aid")));
+            preparedStatement.executeUpdate();
+
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+            }
+        }
     }
 
 }

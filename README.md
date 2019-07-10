@@ -72,7 +72,7 @@ resp.sendRedirect("info.jsp");
 
 * 新建comment数据库
 ```sql
-CREATE TABLE `vltest`.`conment` (
+CREATE TABLE `vltest`.`comment` (
   `cid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `text` VARCHAR(2000) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
@@ -104,3 +104,5 @@ CREATE TABLE `vltest`.`conment` (
 * 查看CommentDao, 通过aid获取所有评论
 * 查看GetArticleServlet, 将所有评论绑定到session中
 * 修改info.jsp, 添加评论信息
+
+* 修改Dao层, 增加新建评论信息的方法

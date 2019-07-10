@@ -47,6 +47,16 @@
         .fb:nth-child(8n) ul { background: url(images/tx3.jpg) no-repeat top 20px left 10px; }
         .fb:first-child ul { background: url(images/tx2.jpg) no-repeat top 20px left 10px; }
         .fb:last-child ul { background: url(images/tx1.jpg) no-repeat top 20px left 10px; }
+        #plpost { margin: 0 20px }
+        .saying { line-height: 30px; color: #a9a6a6; }
+        .saying span { float: right }
+        .saying span a { color: #de1513; }
+        img#plKeyImg { display: inline-block; }
+        .yname { margin: 10px 10px 10px 0 }
+        .yname span, .yzm span { padding-right: 10px; }
+        .yzm { margin: 0 10px 10px 0 }
+        #plpost input[type="submit"] { display: block; background: #303030; color: #fff; border: 0; line-height: 30px; padding: 0 20px; border-radius: 5px; float: right; }
+        textarea#saytext { width: 100%; }
     </style>
     <script>
         function like(aid) {
@@ -152,7 +162,6 @@
             <div class="pinlun">
                 <h2 class="newstitle"><b>评论</b></h2>
                 <div class="gbok">
-
                     <%
                         for (Comment comment : commentList) {
                     %>
@@ -168,9 +177,41 @@
                     <%
                         }
                     %>
-
                 </div>
             </div>
+
+            <script>
+                function CheckPl(obj)
+                {
+                    if(obj.saytext.value=="")
+                    {
+                        alert("您没什么话要说吗？");
+                        obj.saytext.focus();
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+            <form action="/e/pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+                <div id="plpost">
+                    <p class="saying"><span><a href="/e/pl/?classid=77&amp;id=106">共有<%=commentList.size()%>条评论</a></span>来说两句吧...</p>
+                    <p class="yname"><span>用户名:</span>
+                        <input name="username" type="text" class="inputText" id="username" value="" size="16">
+                    </p>
+<%--                    <p class="yzm"><span></span>--%>
+<%--                        <input name="key" type="text" class="inputText" size="16">--%>
+<%--                    </p>--%>
+                    <input name="nomember" type="hidden" id="nomember" value="1" checked="checked">
+                    <textarea name="saytext" rows="6" id="saytext"></textarea>
+                    <input name="imageField" type="submit" value="提交">
+
+                    <input name="id" type="hidden" id="id" value="106">
+                    <input name="classid" type="hidden" id="classid" value="77">
+                    <input name="enews" type="hidden" id="enews" value="AddPl">
+                    <input name="repid" type="hidden" id="repid" value="0">
+                    <input type="hidden" name="ecmsfrom" value="/joke/talk/2018-07-23/106.html">
+                </div>
+            </form>
 
         </div>
 
