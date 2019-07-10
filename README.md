@@ -67,4 +67,6 @@ resp.sendRedirect("info.jsp");
 
 * 将yq改成用户的名字
 * 修改所有的href
+* 加入验证的一些工具
+* 加入图片
 
