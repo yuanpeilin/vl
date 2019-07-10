@@ -21,6 +21,32 @@
     <!--[if lt IE 9]>
     <script src="js/modernizr.js"></script>
     <![endif]-->
+    <style>
+        .share { padding: 20px; }
+        .diggit {  width: 160px; margin: auto; background: #E2523A; color: #fff; box-shadow: 1px 2px 6px 0px rgba(0,0,0,.2); border-radius: 3px; line-height: 40px; text-align: center; }
+        .diggit a { color: #fff; }
+        #diggnum { margin: 5px; }
+    </style>
+    <script>
+        function like(aid) {
+            $.ajax({
+                // 请求方式
+                type:"POST",
+                // 请求地址
+                url:"like.do?aid="+aid,
+                // 请求成功
+                success : function (result) {
+                    var num = document.getElementById("diggnum").innerText;
+                    num = parseInt(num) + 1;
+                    document.getElementById("diggnum").innerText = num;
+                },
+                // 请求失败
+                error : function (e) {
+                    alert("Unknown Error");
+                }
+            })
+        }
+    </script>
 </head>
 <body>
 <header>
@@ -67,12 +93,18 @@
                 <div class="entry">
                     <%=articleInfo.getText()%>
                 </div>
-                <div class="share"> 分享</div>
+
+                <div class="share">
+                    <p class="diggit"><a href="javascript:like(<%=articleInfo.getAid()%>);"> 很赞哦！ </a>
+                    (<b id="diggnum"><%=articleInfo.getLikeCount()%></b>)</p>
+                </div>
+
                 <div class="nextinfo">
                     <p>上一篇：<a href="/download/f/881.html">纯文字个人博客模板《时尚黑》</a></p>
                     <p>下一篇：<a href="/download/f/886.html">html5 个人博客模板《蓝色畅想》</a></p>
                 </div>
             </div>
+
             <div class="viewbox">
                 <h2 class="newstitle"><b>随便看看</b></h2>
                 <ul>

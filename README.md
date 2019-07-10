@@ -93,3 +93,7 @@ CREATE TABLE `vltest`.`conment` (
 
 * 删除所有的gtlog
 * 调整登录逻辑
+* 加入点赞html代码和对应的ajax代码, 测试是否能行
+* 新建一个servlet处理点赞的请求
+* 修改Dao层使得通过aid增加点赞数量
+* 
