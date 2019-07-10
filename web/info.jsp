@@ -180,6 +180,7 @@
                 </div>
             </div>
 
+            <%--输入框--%>
             <script>
                 function CheckPl(obj)
                 {
@@ -192,7 +193,7 @@
                     return true;
                 }
             </script>
-            <form action="/e/pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+            <form action="comment.do?aid=<%=articleInfo.getAid()%>" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
                 <div id="plpost">
                     <p class="saying"><span><a href="/e/pl/?classid=77&amp;id=106">共有<%=commentList.size()%>条评论</a></span>来说两句吧...</p>
                     <p class="yname"><span>用户名:</span>
@@ -201,8 +202,8 @@
 <%--                    <p class="yzm"><span></span>--%>
 <%--                        <input name="key" type="text" class="inputText" size="16">--%>
 <%--                    </p>--%>
-                    <input name="nomember" type="hidden" id="nomember" value="1" checked="checked">
-                    <textarea name="saytext" rows="6" id="saytext"></textarea>
+                    <input name="username" type="hidden" id="nomember" value="1" checked="checked">
+                    <textarea name="text" rows="6" id="saytext"></textarea>
                     <input name="imageField" type="submit" value="提交">
 
                     <input name="id" type="hidden" id="id" value="106">

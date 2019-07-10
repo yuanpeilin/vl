@@ -54,7 +54,7 @@ CREATE TABLE `article` (
 
 * 修改index.jsp, 将a标签的href属性改为`href="getArticle.do?aid=<%=article.getAid()%>"`
 * 新建GetArticleServlet, 获取前端传过来的aid
-    * 接受前端的数据`req.getParameter("aid")`
+    * **接受前端的数据** `req.getParameter("aid")`
 * 修改Dao, 新增通过aid获取文章的方法
 * 修改GetArticleServlet, 获取article实例
 * **将article实例绑定到session中, 并跳转**
@@ -106,3 +106,5 @@ CREATE TABLE `vltest`.`comment` (
 * 修改info.jsp, 添加评论信息
 
 * 修改Dao层, 增加新建评论信息的方法
+* 新建servlet, 获取前端传来的信息
+* 修改Dao层, 传入Dao层的对象应为Comment实体类

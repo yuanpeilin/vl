@@ -57,20 +57,18 @@ public class CommentDao {
 
     /**
      * 添加一条评论
-     *
-     * @param map
      */
-    public static void addComment(HashMap<String, String> map) {
+    public static void addComment(Comment comment) {
         String sql = "INSERT INTO comment VALUES (DEFAULT, ?, ?, DEFAULT, ?)";
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
             connection = ConnectionUtil.getConnection();
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, map.get("text"));
-            preparedStatement.setString(2, map.get("name"));
-            preparedStatement.setInt(3, Integer.parseInt(map.get("aid")));
-            preparedStatement.executeUpdate();
+            preparedStatement.setString(1, comment.getText());
+            preparedStatement.setString(2, comment.getName());
+            preparedStatement.setInt(3, comment.getAid());
+            preparedStatement.execute();
 
             preparedStatement.close();
             connection.close();
