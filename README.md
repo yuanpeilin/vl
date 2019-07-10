@@ -255,3 +255,4 @@ CREATE TABLE `vltest`.`comment` (
 
 <br>
 
+*  放弃ajax刷新评论
