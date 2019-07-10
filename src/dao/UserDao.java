@@ -5,32 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/*
-String sql = "";
-Connection connection = null;
-PreparedStatement preparedStatement = null;
-ResultSet resultSet = null;
-try {
-    connection = ConnectionUtil.getConnection();
-    preparedStatement = connection.prepareStatement(sql);
-    resultSet = preparedStatement.executeQuery();
-
-
-    resultSet.close();
-    preparedStatement.close();
-    connection.close();
-} catch (SQLException e) {
-    e.printStackTrace();
-} finally {
-    try {
-        if (resultSet != null) resultSet.close();
-        if (preparedStatement != null) preparedStatement.close();
-        if (connection != null) connection.close();
-    } catch (SQLException e) {
-    }
-}
-*/
-
 public class UserDao {
 
     /**
