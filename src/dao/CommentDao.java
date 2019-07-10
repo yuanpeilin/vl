@@ -1,6 +1,5 @@
 package dao;
 
-import obj.Article;
 import obj.Comment;
 
 import java.sql.Connection;
@@ -26,6 +25,7 @@ public class CommentDao {
         try {
             connection = ConnectionUtil.getConnection();
             preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, aid);
             resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {

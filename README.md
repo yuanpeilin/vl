@@ -100,3 +100,7 @@ CREATE TABLE `vltest`.`conment` (
 * 修改Dao层, 新增获取点赞数量最多的文章的函数
 * 修改LoginServlet, 把获取到的文章绑定到session中
 * 修改index.jsp和list.jsp, 获取点赞文章
+
+* 查看CommentDao, 通过aid获取所有评论
+* 查看GetArticleServlet, 将所有评论绑定到session中
+* 修改info.jsp, 添加评论信息
