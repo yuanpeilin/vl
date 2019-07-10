@@ -2,7 +2,7 @@ package obj;
 
 public class Article {
 
-    private int aid, uid, like;
+    private int aid, uid, likeCount;
     private String title, text, pic, date;
 
     public int getAid() {
@@ -21,12 +21,12 @@ public class Article {
         this.uid = uid;
     }
 
-    public int getLike() {
-        return like;
+    public int getLikeCount() {
+        return likeCount;
     }
 
-    public void setLike(int like) {
-        this.like = like;
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
     }
 
     public String getTitle() {

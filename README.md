@@ -70,3 +70,33 @@ resp.sendRedirect("info.jsp");
 * 加入验证的一些工具
 * 加入图片
 
+* 新建comment数据库
+```sql
+CREATE TABLE `vltest`.`conment` (
+  `cid` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `text` VARCHAR(2000) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `date` DATE NOT NULL DEFAULT "1989-06-04",
+  `aid` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`cid`),
+  UNIQUE INDEX `cid_UNIQUE` (`cid` ASC) VISIBLE);
+```
+* 新建对应的实体类
+* 新建对应的Dao层, 通过aid获取所有的评论
+* 修改GetArticleServlet, 获取评论并绑定到session中
+
+* 修改login.jsp, 准备验证
+    * 导入对应的jar
+    * 添加所需要的html, css, js. 注意改路径
+    * 四个java类, 改口令
+    * 改Java类对应的注解
+
+* 删除所有的gtlog
+* 调整登录逻辑
+* 加入点赞html代码和对应的ajax代码, 测试是否能行
+* 新建一个servlet处理点赞的请求
+* 修改Dao层使得通过aid增加点赞数量
+
+* 修改Dao层, 新增获取点赞数量最多的文章的函数
+* 修改LoginServlet, 把获取到的文章绑定到session中
+* 修改index.jsp和list.jsp, 获取点赞文章

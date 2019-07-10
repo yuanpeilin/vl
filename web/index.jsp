@@ -6,6 +6,7 @@
 <%
     String name = (String) session.getAttribute("username");
     ArrayList<Article> articleList = (ArrayList<Article>) session.getAttribute("articleList");
+    ArrayList<Article> topArticles = (ArrayList<Article>) session.getAttribute("topArticles");
 %>
 
 <head>
@@ -77,7 +78,8 @@
                                 for (int i = 0; i < 8; ++i) {
                                     Article article = articleList.get(i);
                         %>
-                        <li class="cur"><a href="getArticle.do?aid=<%=article.getAid()%>"><img src=<%="images/" + article.getPic()%> alt=""/>
+                        <li class="cur"><a href="getArticle.do?aid=<%=article.getAid()%>"><img
+                                src=<%="images/" + article.getPic()%> alt=""/>
                             <p><%=article.getTitle()%>
                             </p>
                         </a></li>
@@ -94,21 +96,20 @@
         <div class="newsbox">
             <section>
                 <div class="news">
-                    <h2 class="newstitle"><span><a href="/">更多</a></span><b>个人博客日记</b></h2>
+                    <h2 class="newstitle"><span><a href="#">点赞</a></span><b>热门文章</b></h2>
                     <ul>
                         <%
-                            if (articleList != null)
-                                for (int i = 0; i < 8; ++i) {
-                                    Article article = articleList.get(i);
+                            if (topArticles != null)
+                                for (int i = 0; i < topArticles.size(); ++i) {
+                                    Article article = topArticles.get(i);
                         %>
                         <li><a href="getArticle.do?aid=<%=article.getAid()%>">
-                            <span><%=article.getDate().substring(5)%></span>
+                            <span><%=article.getLikeCount()%></span>
                             <%=article.getTitle()%>
                         </a></li>
                         <%
                                 }
                         %>
-
                     </ul>
                 </div>
             </section>
