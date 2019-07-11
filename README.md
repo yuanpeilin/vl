@@ -53,6 +53,12 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 ```
 ### 数据库驱动连接
 ```java
+username=root
+password=123456
+url=jdbc:mysql://localhost:3306/vltest?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+driver=com.mysql.cj.jdbc.Driver
+```
+```java
 public class ConnectionUtil {
 
     private static String username, password, url, driver;
