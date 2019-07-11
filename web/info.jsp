@@ -132,7 +132,7 @@
                     <span><%=articleInfo.getDate()%></span>
                     <span><a href="#">个人博客模板</a></span>
                 </p>
-                <p class="jianjie"><b>简介</b><%=articleInfo.getText().substring(0,3)%></p>
+                <p class="jianjie"><b>简介</b><%=articleInfo.getText().substring(0,20)%></p>
                 <div class="entry">
                     <%=articleInfo.getText()%>
                 </div>

@@ -18,6 +18,9 @@ public class GetArticleServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setContentType("text/html;charset=utf-8");
+
         int aid = Integer.parseInt(req.getParameter("aid"));
 
         Article article = ArticleDao.getArticleByAid(aid);

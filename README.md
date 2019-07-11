@@ -43,6 +43,14 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
     resp.sendRedirect("index.jsp");
 }
 ```
+### 设置编码
+```java
+@Override
+protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    req.setCharacterEncoding("utf-8");
+    resp.setContentType("text/html;charset=utf-8");
+}
+```
 ### 数据库驱动连接
 ```java
 public class ConnectionUtil {
