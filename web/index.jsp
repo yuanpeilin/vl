@@ -75,7 +75,7 @@
                     <ul>
                         <%
                             if (articleList != null)
-                                for (int i = 0; i < 8; ++i) {
+                                for (int i = 0; i < articleList.size(); ++i) {
                                     Article article = articleList.get(i);
                         %>
                         <li class="cur"><a href="getArticle.do?aid=<%=article.getAid()%>"><img
@@ -119,7 +119,7 @@
                     <ul>
                         <%
                             if (articleList != null)
-                                for (int i = 0; i < 8; ++i) {
+                                for (int i = 0; i < articleList.size(); ++i) {
                                     Article article = articleList.get(i);
                         %>
                         <li><a href="getArticle.do?aid=<%=article.getAid()%>">
@@ -138,7 +138,7 @@
                     <ul>
                         <%
                             if (articleList != null)
-                                for (int i = 0; i < 8; ++i) {
+                                for (int i = 0; i < articleList.size(); ++i) {
                                     Article article = articleList.get(i);
                         %>
                         <li><a href="getArticle.do?aid=<%=article.getAid()%>">
@@ -157,7 +157,7 @@
                     <ul>
                         <%
                             if (articleList != null)
-                                for (int i = 0; i < 8; ++i) {
+                                for (int i = 0; i < articleList.size(); ++i) {
                                     Article article = articleList.get(i);
                         %>
                         <li><a href="getArticle.do?aid=<%=article.getAid()%>">
@@ -176,7 +176,7 @@
                     <ul>
                         <%
                             if (articleList != null)
-                                for (int i = 0; i < 8; ++i) {
+                                for (int i = 0; i < articleList.size(); ++i) {
                                     Article article = articleList.get(i);
                         %>
                         <li><a href="getArticle.do?aid=<%=article.getAid()%>">
@@ -195,7 +195,7 @@
                     <ul>
                         <%
                             if (articleList != null)
-                                for (int i = 0; i < 8; ++i) {
+                                for (int i = 0; i < articleList.size(); ++i) {
                                     Article article = articleList.get(i);
                         %>
                         <li><a href="getArticle.do?aid=<%=article.getAid()%>">
