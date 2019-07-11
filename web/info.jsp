@@ -93,25 +93,25 @@
 </head>
 <body>
 <header>
-    <div class="logo">杨青个人博客</div>
+    <div class="logo"><%=name%>个人博客</div>
     <div class="top-nav">
         <h2 id="mnavh"><span class="navicon"></span></h2>
         <ul id="nav">
             <li><a href="index.jsp">网站首页</a></li>
             <li><a href="list.jsp">个人博客日记</a></li>
-            <li><a href="/">个人博客模板</a></li>
-            <li><a href="/">博客网站制作</a></li>
-            <li><a href="/">网页设计心得</a></li>
-            <li><a href="/">优秀个人博客</a></li>
-            <li><a href="/">关于我</a></li>
-            <li><a href="/">留言</a></li>
+            <li><a href="#">个人博客模板</a></li>
+            <li><a href="#">博客网站制作</a></li>
+            <li><a href="#">网页设计心得</a></li>
+            <li><a href="#">优秀个人博客</a></li>
+            <li><a href="#">关于我</a></li>
+            <li><a href="#">留言</a></li>
             <li><a href="login.html">登录/注册</a></li>
         </ul>
     </div>
 </header>
 
 <aside class="side">
-    <div class="about"><i><a href="/"><img src="images/avatar.jpg"></a></i>
+    <div class="about"><i><a href="#"><img src="images/avatar.jpg"></a></i>
         <p><%=name%>，一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。</p>
     </div>
     <div class="weixin"><img src="http://www.yangqq.com/skin/html/images/wx.jpg">
@@ -130,9 +130,9 @@
                 <p class="bloginfo">
                     <span><%=name%></span>
                     <span><%=articleInfo.getDate()%></span>
-                    <span><a href="/">个人博客模板</a></span>
+                    <span><a href="#">个人博客模板</a></span>
                 </p>
-                <p class="jianjie"><b>简介</b><%=articleInfo.getText().substring(0,3)%></p>
+                <p class="jianjie"><b>简介</b><%=articleInfo.getText().substring(0,20)%></p>
                 <div class="entry">
                     <%=articleInfo.getText()%>
                 </div>
@@ -143,15 +143,15 @@
                 </div>
 
                 <div class="nextinfo">
-                    <p>上一篇：<a href="/download/f/881.html">纯文字个人博客模板《时尚黑》</a></p>
-                    <p>下一篇：<a href="/download/f/886.html">html5 个人博客模板《蓝色畅想》</a></p>
+                    <p>上一篇：<a href="#">纯文字个人博客模板《时尚黑》</a></p>
+                    <p>下一篇：<a href="#">html5 个人博客模板《蓝色畅想》</a></p>
                 </div>
             </div>
 
 <%--            <div class="viewbox">--%>
 <%--                <h2 class="newstitle"><b>随便看看</b></h2>--%>
 <%--                <ul>--%>
-<%--                    <li><a href="/"><i><img--%>
+<%--                    <li><a href="#"><i><img--%>
 <%--                            src="http://www.yangqq.com/d/file/news/life/2018-06-17/917d732926d79cc2ae1012831ce51d1e.jpg"></i>--%>
 <%--                        <p>3dmax利用VRay光源制作灯带</p>--%>
 <%--                        <span>2018年7月25日</span></a></li>--%>
@@ -274,7 +274,7 @@
         </div>
 
         <div class="copyright">
-            <p>Copyright 2018 Inc. AllRights Reserved. Design by <a href="/"><%=name%>个人博客</a> 蜀ICP备11002373号-1</p>
+            <p>Copyright 2018 Inc. AllRights Reserved. Design by <a href="#"><%=name%>个人博客</a> 蜀ICP备11002373号-1</p>
         </div>
     </div>
 </main>
