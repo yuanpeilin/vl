@@ -34,19 +34,19 @@
         <ul id="nav">
             <li><a href="index.jsp">网站首页</a></li>
             <li><a href="list.jsp">个人博客日记</a></li>
-            <li><a href="/">个人博客模板</a></li>
-            <li><a href="/">博客网站制作</a></li>
-            <li><a href="/">网页设计心得</a></li>
-            <li><a href="/">优秀个人博客</a></li>
-            <li><a href="/">关于我</a></li>
-            <li><a href="/">留言</a></li>
+            <li><a href="#">个人博客模板</a></li>
+            <li><a href="#">博客网站制作</a></li>
+            <li><a href="#">网页设计心得</a></li>
+            <li><a href="#">优秀个人博客</a></li>
+            <li><a href="#">关于我</a></li>
+            <li><a href="#">留言</a></li>
             <li><a href="login.html">登录/注册</a></li>
         </ul>
     </div>
 </header>
 
 <aside class="side">
-    <div class="about"><i><a href="/"><img src="images/avatar.jpg"></a></i>
+    <div class="about"><i><a href="#"><img src="images/avatar.jpg"></a></i>
         <p><%=name%>，一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。</p>
     </div>
     <div class="weixin"><img src="http://www.yangqq.com/skin/html/images/wx.jpg">
@@ -76,7 +76,7 @@
                         <p class="bloginfo">
                             <span><%=name%></span>
                             <span><%=article.getDate()%></span>
-                            <span><a href="/">个人博客模板</a></span>
+                            <span><a href="#">个人博客模板</a></span>
                         </p>
                     </li>
                     <%
@@ -143,7 +143,7 @@
         </div>
 
         <div class="copyright">
-            <p>Copyright 2018 Inc. AllRights Reserved. Design by <a href="/"><%=name%>
+            <p>Copyright 2018 Inc. AllRights Reserved. Design by <a href="#"><%=name%>
                 个人博客</a> 蜀ICP备11002373号-1</p>
         </div>
 

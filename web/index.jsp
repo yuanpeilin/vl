@@ -32,12 +32,12 @@
         <ul id="nav">
             <li><a href="index.jsp">网站首页</a></li>
             <li><a href="list.jsp">个人博客日记</a></li>
-            <li><a href="/">个人博客模板</a></li>
-            <li><a href="/">博客网站制作</a></li>
-            <li><a href="/">网页设计心得</a></li>
-            <li><a href="/">优秀个人博客</a></li>
-            <li><a href="/">关于我</a></li>
-            <li><a href="/">留言</a></li>
+            <li><a href="#">个人博客模板</a></li>
+            <li><a href="#">博客网站制作</a></li>
+            <li><a href="#">网页设计心得</a></li>
+            <li><a href="#">优秀个人博客</a></li>
+            <li><a href="#">关于我</a></li>
+            <li><a href="#">留言</a></li>
             <%
                 if (name == null) {
             %>
@@ -55,7 +55,7 @@
 </header>
 
 <aside class="side">
-    <div class="about"><i><a href="/"><img src="images/avatar.jpg"></a></i>
+    <div class="about"><i><a href="#"><img src="images/avatar.jpg"></a></i>
         <p><%=name%>，一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。</p>
     </div>
     <div class="weixin"><img src="http://www.yangqq.com/skin/html/images/wx.jpg">
@@ -68,7 +68,7 @@
         <div class="welcome"> 您好，欢迎您访问我们的官方网站！</div>
 
         <div class="picbox">
-            <h2 class="pictitle"><a href="/">个人博客网站模板</a></h2>
+            <h2 class="pictitle"><a href="#">个人博客网站模板</a></h2>
             <!--box begin-->
             <div class="Box_con"><span class="btnl btn" id="btnl"></span> <span class="btnr btn" id="btnr"></span>
                 <div class="conbox" id="BoxUl">
@@ -115,7 +115,7 @@
             </section>
             <section>
                 <div class="news">
-                    <h2 class="newstitle"><span><a href="/">更多</a></span><b>设计思维</b></h2>
+                    <h2 class="newstitle"><span><a href="#">更多</a></span><b>设计思维</b></h2>
                     <ul>
                         <%
                             if (articleList != null)
@@ -134,7 +134,7 @@
             </section>
             <section>
                 <div class="news">
-                    <h2 class="newstitle"><span><a href="/">更多</a></span><b>结构设计</b></h2>
+                    <h2 class="newstitle"><span><a href="#">更多</a></span><b>结构设计</b></h2>
                     <ul>
                         <%
                             if (articleList != null)
@@ -153,7 +153,7 @@
             </section>
             <section>
                 <div class="news">
-                    <h2 class="newstitle"><span><a href="/">更多</a></span><b>设计素材</b></h2>
+                    <h2 class="newstitle"><span><a href="#">更多</a></span><b>设计素材</b></h2>
                     <ul>
                         <%
                             if (articleList != null)
@@ -172,7 +172,7 @@
             </section>
             <section>
                 <div class="news">
-                    <h2 class="newstitle"><span><a href="/">更多</a></span><b>设计教程</b></h2>
+                    <h2 class="newstitle"><span><a href="#">更多</a></span><b>设计教程</b></h2>
                     <ul>
                         <%
                             if (articleList != null)
@@ -191,7 +191,7 @@
             </section>
             <section>
                 <div class="news">
-                    <h2 class="newstitle"><span><a href="/">更多</a></span><b>设计心得</b></h2>
+                    <h2 class="newstitle"><span><a href="#">更多</a></span><b>设计心得</b></h2>
                     <ul>
                         <%
                             if (articleList != null)
@@ -215,23 +215,23 @@
         <div class="links">
             <h2 class="linktitle">合作伙伴</h2>
             <ul class="link-pic">
-                <li><a href="/"><img src="images/yqlj.png"></a></li>
-                <li><a href="/"><img src="images/yqlj.png"></a></li>
-                <li><a href="/"><img src="images/yqlj.png"></a></li>
-                <li><a href="/"><img src="images/yqlj.png"></a></li>
-                <li><a href="/"><img src="images/yqlj.png"></a></li>
+                <li><a href="#"><img src="images/yqlj.png"></a></li>
+                <li><a href="#"><img src="images/yqlj.png"></a></li>
+                <li><a href="#"><img src="images/yqlj.png"></a></li>
+                <li><a href="#"><img src="images/yqlj.png"></a></li>
+                <li><a href="#"><img src="images/yqlj.png"></a></li>
             </ul>
             <ul class="link-text">
-                <li><a href="/"><%=name%>个人博客</a></li>
-                <li><a href="/"><%=name%>个人博客</a></li>
-                <li><a href="/"><%=name%>个人博客</a></li>
-                <li><a href="/"><%=name%>个人博客</a></li>
-                <li><a href="/"><%=name%>个人博客</a></li>
+                <li><a href="#"><%=name%>个人博客</a></li>
+                <li><a href="#"><%=name%>个人博客</a></li>
+                <li><a href="#"><%=name%>个人博客</a></li>
+                <li><a href="#"><%=name%>个人博客</a></li>
+                <li><a href="#"><%=name%>个人博客</a></li>
             </ul>
         </div>
 
         <div class="copyright">
-            <p>Copyright 2018 Inc. AllRights Reserved. Design by <a href="/"><%=name%>
+            <p>Copyright 2018 Inc. AllRights Reserved. Design by <a href="#"><%=name%>
                 个人博客</a> 蜀ICP备11002373号-1</p>
         </div>
     </div>
